@@ -4,6 +4,7 @@ const state = {
   layer: "all",
   mode: "all",
   query: "",
+  theme: readTheme(),
   selectedId: "",
   mastered: new Set(readMastered()),
 };
@@ -16,6 +17,7 @@ const dom = {
   searchInput: document.querySelector("#searchInput"),
   randomButton: document.querySelector("#randomButton"),
   resetButton: document.querySelector("#resetButton"),
+  themeButton: document.querySelector("#themeButton"),
   modeSwitch: document.querySelector("#modeSwitch"),
   clearMasteredButton: document.querySelector("#clearMasteredButton"),
   masteredCount: document.querySelector("#masteredCount"),
@@ -39,6 +41,32 @@ function readMastered() {
   } catch {
     return [];
   }
+}
+
+function readTheme() {
+  try {
+    const saved = localStorage.getItem("ai-lexicon-theme");
+    return saved === "light" || saved === "dark" ? saved : "dark";
+  } catch {
+    return "dark";
+  }
+}
+
+function saveTheme(theme) {
+  try {
+    localStorage.setItem("ai-lexicon-theme", theme);
+  } catch {
+    // Theme persistence is optional; the live switch still works without storage.
+  }
+}
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  if (!dom.themeButton) return;
+  const isLight = theme === "light";
+  dom.themeButton.setAttribute("aria-pressed", String(isLight));
+  dom.themeButton.setAttribute("aria-label", isLight ? "切换深色模式" : "切换明亮模式");
+  dom.themeButton.setAttribute("title", isLight ? "切换深色模式" : "切换明亮模式");
 }
 
 function saveMastered() {
@@ -445,6 +473,13 @@ dom.randomButton.addEventListener("click", () => {
 
 dom.resetButton.addEventListener("click", clearFilters);
 
+dom.themeButton.addEventListener("click", () => {
+  state.theme = state.theme === "light" ? "dark" : "light";
+  applyTheme(state.theme);
+  saveTheme(state.theme);
+  showToast(state.theme === "light" ? "明亮模式" : "深色模式");
+});
+
 dom.clearMasteredButton.addEventListener("click", () => {
   state.mastered.clear();
   saveMastered();
@@ -452,4 +487,5 @@ dom.clearMasteredButton.addEventListener("click", () => {
   showToast("掌握记录已清空");
 });
 
+applyTheme(state.theme);
 render();
