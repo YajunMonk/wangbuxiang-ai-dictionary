@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>王不响 AI 词典</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brand-chip">AI</div>
+          <div>
+            <p class="eyebrow">Wangbuxiang Lexicon System</p>
+            <h1>AI 词典控制台</h1>
+          </div>
+        </div>
+        <div class="top-actions" role="search">
+          <label class="search-box" for="searchInput">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m21 21-4.2-4.2m1.2-5.3a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" />
+            </svg>
+            <input id="searchInput" type="search" autocomplete="off" placeholder="搜索中文、英文或场景" />
+          </label>
+          <button class="icon-button" id="randomButton" title="随机抽卡" aria-label="随机抽卡">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5" />
+            </svg>
+          </button>
+          <button class="icon-button" id="resetButton" title="重置筛选" aria-label="重置筛选">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 12a9 9 0 1 0 3-6.7M3 4v6h6" />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="workbench">
+        <aside class="side-panel" aria-label="词典层级">
+          <div class="panel-title">
+            <p class="eyebrow">Stages</p>
+            <h2>五层地图</h2>
+          </div>
+          <nav class="layer-list" id="layerList"></nav>
+          <div class="progress-console">
+            <div>
+              <span class="console-label">Mastery</span>
+              <strong id="masteredCount">0 / 0</strong>
+            </div>
+            <div class="progress-track">
+              <span id="progressFill"></span>
+            </div>
+          </div>
+          <div class="mode-switch" id="modeSwitch" aria-label="显示模式">
+            <button data-mode="all" class="is-active">全部</button>
+            <button data-mode="unmastered">待复习</button>
+            <button data-mode="mastered">已掌握</button>
+          </div>
+        </aside>
+
+        <section class="map-panel" aria-label="AI 概念地图">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Concept Map</p>
+              <h2>从会说话到能做事</h2>
+            </div>
+            <div class="stat-strip" aria-label="词典统计">
+              <span><strong id="termCount">0</strong> 个词</span>
+              <span><strong id="activeLayerName">全部</strong></span>
+            </div>
+          </div>
+          <div class="map-stage" id="mapStage"></div>
+          <div class="results-bar">
+            <span id="resultCount">0 个结果</span>
+            <button class="text-button" id="clearMasteredButton">清空掌握记录</button>
+          </div>
+          <div class="concept-grid" id="conceptGrid"></div>
+        </section>
+
+        <aside class="detail-panel" id="detailPanel" aria-label="概念详情"></aside>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
