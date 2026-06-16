@@ -27,8 +27,18 @@
   --button-bg: rgba(15, 20, 30, 0.86);
   --hover-border: rgba(255, 184, 77, 0.78);
   --mode-active-bg: rgba(255, 184, 77, 0.12);
-  --master-bg: rgba(142, 242, 139, 0.18);
-  --master-border: rgba(142, 242, 139, 0.7);
+  --unmastered-bg:
+    linear-gradient(180deg, rgba(142, 242, 139, 0.18), rgba(142, 242, 139, 0.06) 56%, rgba(9, 13, 20, 0.72)),
+    rgba(9, 13, 20, 0.86);
+  --unmastered-node-bg: rgba(29, 69, 43, 0.56);
+  --unmastered-border: rgba(142, 242, 139, 0.56);
+  --unmastered-ink: #b7ffb3;
+  --mastered-bg:
+    linear-gradient(180deg, rgba(255, 107, 107, 0.2), rgba(255, 107, 107, 0.07) 56%, rgba(9, 13, 20, 0.72)),
+    rgba(9, 13, 20, 0.86);
+  --mastered-node-bg: rgba(83, 33, 35, 0.62);
+  --mastered-border: rgba(255, 107, 107, 0.68);
+  --mastered-ink: #ffc1bd;
   --layer-bg:
     linear-gradient(90deg, color-mix(in srgb, var(--layer-color), transparent 78%), transparent),
     rgba(8, 11, 17, 0.82);
@@ -103,8 +113,18 @@
   --button-bg: rgba(255, 255, 255, 0.82);
   --hover-border: rgba(173, 107, 0, 0.7);
   --mode-active-bg: rgba(173, 107, 0, 0.1);
-  --master-bg: rgba(19, 138, 73, 0.12);
-  --master-border: rgba(19, 138, 73, 0.48);
+  --unmastered-bg:
+    linear-gradient(180deg, rgba(19, 138, 73, 0.16), rgba(19, 138, 73, 0.07) 56%, rgba(255, 255, 255, 0.74)),
+    rgba(255, 255, 255, 0.86);
+  --unmastered-node-bg: rgba(218, 246, 226, 0.92);
+  --unmastered-border: rgba(19, 138, 73, 0.42);
+  --unmastered-ink: #0f6f3a;
+  --mastered-bg:
+    linear-gradient(180deg, rgba(198, 77, 69, 0.18), rgba(198, 77, 69, 0.07) 56%, rgba(255, 255, 255, 0.74)),
+    rgba(255, 255, 255, 0.86);
+  --mastered-node-bg: rgba(255, 229, 226, 0.96);
+  --mastered-border: rgba(198, 77, 69, 0.48);
+  --mastered-ink: #a73c35;
   --layer-bg:
     linear-gradient(90deg, color-mix(in srgb, var(--layer-color), transparent 84%), transparent),
     rgba(255, 255, 255, 0.72);
@@ -628,13 +648,13 @@ h3 {
 .map-node.is-active,
 .concept-card.is-active {
   border-color: color-mix(in srgb, var(--layer-color), white 20%);
-  background:
-    var(--active-bg);
 }
 
 .map-node.is-mastered,
 .concept-card.is-mastered {
-  box-shadow: inset 0 0 0 1px rgba(142, 242, 139, 0.2);
+  border-color: var(--mastered-border);
+  background: var(--mastered-bg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--mastered-border), transparent 64%);
 }
 
 .results-bar {
@@ -705,6 +725,47 @@ h3 {
   font-size: 13px;
 }
 
+.map-node:not(.is-mastered),
+.concept-card:not(.is-mastered) {
+  border-color: var(--unmastered-border);
+}
+
+.map-node:not(.is-mastered) {
+  background: var(--unmastered-node-bg);
+}
+
+.map-node.is-mastered {
+  background: var(--mastered-node-bg);
+}
+
+.concept-card:not(.is-mastered) {
+  background: var(--unmastered-bg);
+}
+
+.concept-card:not(.is-mastered) .card-meta:last-child {
+  width: fit-content;
+  border: 1px solid var(--unmastered-border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--unmastered-border), transparent 86%);
+  color: var(--unmastered-ink);
+  padding: 4px 8px;
+}
+
+.concept-card.is-mastered .card-meta:last-child {
+  width: fit-content;
+  border: 1px solid var(--mastered-border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--mastered-border), transparent 84%);
+  color: var(--mastered-ink);
+  padding: 4px 8px;
+}
+
+.map-node.is-active,
+.concept-card.is-active {
+  outline: 2px solid color-mix(in srgb, var(--layer-color), white 12%);
+  outline-offset: 2px;
+}
+
 .play-button {
   width: 38px;
   height: 38px;
@@ -754,12 +815,15 @@ h3 {
 .master-button {
   width: 38px;
   height: 38px;
-  color: var(--green);
+  color: var(--unmastered-ink);
+  border-color: var(--unmastered-border);
+  background: color-mix(in srgb, var(--unmastered-border), transparent 88%);
 }
 
 .master-button.is-on {
-  background: var(--master-bg);
-  border-color: var(--master-border);
+  background: color-mix(in srgb, var(--mastered-border), transparent 84%);
+  border-color: var(--mastered-border);
+  color: var(--mastered-ink);
 }
 
 .section-block {
