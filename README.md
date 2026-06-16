@@ -4,6 +4,8 @@
 
 支持深色 / 明亮两种模式，顶部月亮或太阳按钮可以切换外观。
 
+已补充 Codex 工作台专题概念，包括 Worktree、Skills、Plugins、AGENTS.md、Permissions、Hooks 等，现有 57 个概念。
+
 ## 打开方式
 
 直接打开：

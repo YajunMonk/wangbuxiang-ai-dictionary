@@ -1,5 +1,5 @@
 window.AI_DICT_DATA = {
-  "generatedAt": "2026-06-15T14:21:35.302Z",
+  "generatedAt": "2026-06-16T02:33:08.935Z",
   "sourceRoot": "02_领域/AI能力/AI概念字典",
   "layers": [
     {
@@ -18,7 +18,7 @@ window.AI_DICT_DATA = {
       "stage": "Stage 02",
       "short": "人怎么把任务讲清楚",
       "color": "#ffb84d",
-      "count": 4
+      "count": 6
     },
     {
       "id": "context",
@@ -27,7 +27,7 @@ window.AI_DICT_DATA = {
       "stage": "Stage 03",
       "short": "AI 怎么拿到足够信息",
       "color": "#8ef28b",
-      "count": 8
+      "count": 9
     },
     {
       "id": "action",
@@ -36,7 +36,7 @@ window.AI_DICT_DATA = {
       "stage": "Stage 04",
       "short": "AI 怎么调用工具和推进任务",
       "color": "#ff6b6b",
-      "count": 11
+      "count": 22
     },
     {
       "id": "evaluation",
@@ -45,7 +45,7 @@ window.AI_DICT_DATA = {
       "stage": "Stage 05",
       "short": "怎么检查、纠错和兜底",
       "color": "#c6a5ff",
-      "count": 10
+      "count": 15
     }
   ],
   "concepts": [
@@ -300,6 +300,116 @@ window.AI_DICT_DATA = {
         "上下文工程-context-engineering",
         "成本-cost",
         "延迟-latency"
+      ]
+    },
+    {
+      "id": "agents-md",
+      "title": "AGENTS.md",
+      "chinese": "AGENTS.md",
+      "english": "AGENTS.md",
+      "layer": "instruction",
+      "layerName": "指令层",
+      "sourceLevel": "官方已核",
+      "path": "20_指令层/AGENTS.md.md",
+      "audio": "audio/agents-md.m4a",
+      "oneLine": "AGENTS.md 是 Codex 在项目里读取的长期协作说明，用来放项目规则、验证方式、编码约定和工作边界。",
+      "solves": [
+        "避免每次开新线程都重复讲项目规则。",
+        "让 Codex 在动手前知道目录职责、测试命令和交付标准。",
+        "支持全局规则和项目规则叠加，离当前目录越近的规则越具体。",
+        "把团队约定变成可被代理稳定读取的文档。"
+      ],
+      "not": [
+        "不是一次性 prompt。",
+        "不是具体任务计划。",
+        "不是 skill。",
+        "不是越长越好；关键规则要清楚、靠前、可执行。"
+      ],
+      "mistakes": [
+        "把临时想法写进 AGENTS.md，导致长期规则混乱。",
+        "写很多价值观，却不写测试、目录、命名和交付要求。",
+        "忽略嵌套目录里更近的 AGENTS.md 会覆盖或细化上层规则。",
+        "规则改完不验证 Codex 是否真的读到了。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "全局、项目和子目录的 AGENTS.md。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 开始工作前按层级读取并合并指令。"
+        },
+        {
+          "label": "输出",
+          "value": "更符合项目习惯的行动计划和文件改动。"
+        },
+        {
+          "label": "风险",
+          "value": "规则过期、层级冲突、文件太长导致重点被淹没。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "system-prompt",
+        "prompt",
+        "技能-skills",
+        "codex配置-config-toml"
+      ]
+    },
+    {
+      "id": "codex配置-config-toml",
+      "title": "Codex 配置（Config.toml）",
+      "chinese": "Codex 配置",
+      "english": "Config.toml",
+      "layer": "instruction",
+      "layerName": "指令层",
+      "sourceLevel": "官方已核",
+      "path": "20_指令层/Codex配置 Config.toml.md",
+      "audio": "audio/codex配置-config-toml.m4a",
+      "oneLine": "Config.toml 是 Codex 的配置文件，用来设置模型、权限、MCP、hooks、项目配置和其他运行默认值。",
+      "solves": [
+        "把 Codex 的运行偏好从聊天里移到可持久配置。",
+        "支持用户级配置和项目级配置。",
+        "管理 MCP servers、权限、沙盒、hooks、模型和功能开关。",
+        "让不同项目或 profile 有不同默认行为。"
+      ],
+      "not": [
+        "不是任务说明书。",
+        "不是概念卡片。",
+        "不是应该存放密钥正文的地方。",
+        "不是所有项目都能无条件覆盖用户级安全配置。"
+      ],
+      "mistakes": [
+        "把项目规则写进 config.toml，而不是 AGENTS.md。",
+        "改了配置但没有重启或重新进入会话。",
+        "在不可信项目里期待项目级 .codex/config.toml 生效。",
+        "把权限、规则、hooks、MCP 的职责混在一起。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "用户级、profile 级、项目级配置。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 按优先级加载配置层。"
+        },
+        {
+          "label": "输出",
+          "value": "模型选择、权限边界、工具连接和生命周期行为。"
+        },
+        {
+          "label": "风险",
+          "value": "配置层级误判、权限过宽、私密信息误入仓库。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "agents-md",
+        "mcp服务器-mcp-server",
+        "钩子-hooks",
+        "权限-permissions"
       ]
     },
     {
@@ -559,6 +669,61 @@ window.AI_DICT_DATA = {
         "rag",
         "知识库",
         "上下文工程-context-engineering"
+      ]
+    },
+    {
+      "id": "codex记忆-codex-memories",
+      "title": "Codex 记忆（Codex Memories）",
+      "chinese": "Codex 记忆",
+      "english": "Codex Memories",
+      "layer": "context",
+      "layerName": "上下文层",
+      "sourceLevel": "官方已核",
+      "path": "30_上下文层/Codex记忆 Codex Memories.md",
+      "audio": "audio/codex记忆-codex-memories.m4a",
+      "oneLine": "Codex Memories 是 Codex 从以往线程中提取的稳定偏好、项目习惯和已知坑点，用来帮助未来任务少重复上下文。",
+      "solves": [
+        "让 Codex 记住稳定偏好和长期工作方式。",
+        "减少每次重新解释项目习惯、常用路径和验收要求。",
+        "在新线程里补充历史经验，但不替代当前明确指令。",
+        "帮助跨项目复用高价值经验。"
+      ],
+      "not": [
+        "不是必须永远生效的项目规则。",
+        "不是官方事实来源。",
+        "不是应该保存密钥或敏感信息的地方。",
+        "不是替代 AGENTS.md、README 或当前用户要求。"
+      ],
+      "mistakes": [
+        "把 memory 当成当前事实，不做现场验证。",
+        "把必须执行的团队规则只放 memory，不写进项目文件。",
+        "不区分用户偏好、历史经验和当前任务要求。",
+        "分享 Codex home 目录前不检查记忆文件。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "过往线程摘要、稳定偏好、项目习惯、错误经验。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 在新会话中按需注入相关记忆。"
+        },
+        {
+          "label": "输出",
+          "value": "更贴合个人习惯的行动方式。"
+        },
+        {
+          "label": "风险",
+          "value": "记忆过期、来源不明、与当前要求冲突。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "记忆-memory",
+        "上下文-context",
+        "agents-md",
+        "trace"
       ]
     },
     {
@@ -1028,6 +1193,115 @@ window.AI_DICT_DATA = {
       ]
     },
     {
+      "id": "技能-skills",
+      "title": "技能（Skills）",
+      "chinese": "技能",
+      "english": "Agent Skills",
+      "layer": "action",
+      "layerName": "行动层",
+      "sourceLevel": "官方已核",
+      "path": "40_行动层/技能 Skills.md",
+      "audio": "audio/技能-skills.m4a",
+      "oneLine": "Skills 是给 Codex 复用的任务工作流包，通常包含一份 SKILL.md 指令，以及可选的参考资料、脚本和素材。",
+      "solves": [
+        "把高频任务从“每次重新解释”变成“可复用流程”。",
+        "让 Codex 在特定任务中按稳定步骤行动。",
+        "把参考资料、脚本、模板和质量标准放在同一个能力包里。",
+        "通过渐进式加载减少上下文浪费。"
+      ],
+      "not": [
+        "不是插件本身。",
+        "不是模型能力。",
+        "不是一次性提示词。",
+        "不是越大越好；好的 skill 应该聚焦一个工作。"
+      ],
+      "mistakes": [
+        "把任何提示词都叫 skill。",
+        "只写一堆泛泛原则，不写触发边界、输入输出和验收方式。",
+        "需要确定性处理时，不提供脚本或测试。",
+        "skill 描述写得太模糊，导致 Codex 该用时不用、不该用时误用。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "任务描述、skill 描述、SKILL.md、可选脚本和参考文件。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 判断是否触发，读取完整指令，再按流程执行。"
+        },
+        {
+          "label": "输出",
+          "value": "更稳定的任务结果、报告、文件或自动化动作。"
+        },
+        {
+          "label": "风险",
+          "value": "触发词不准、流程过时、脚本没验证、上下文过重。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "插件-plugin",
+        "工作流-workflow",
+        "mcp服务器-mcp-server",
+        "agents-md"
+      ]
+    },
+    {
+      "id": "应用连接-app-connector",
+      "title": "应用连接（App Connector）",
+      "chinese": "应用连接",
+      "english": "App Connector",
+      "layer": "action",
+      "layerName": "行动层",
+      "sourceLevel": "官方已核",
+      "path": "40_行动层/应用连接 App Connector.md",
+      "audio": "audio/应用连接-app-connector.m4a",
+      "oneLine": "应用连接是 Codex 通过授权接入外部应用的能力，让它能读取或操作 GitHub、Gmail、Google Drive 等私有工作数据。",
+      "solves": [
+        "让 Codex 不只看本地文件，还能进入授权的工作系统。",
+        "把私有数据和动作接入任务流，比如读邮件、查 PR、改文档。",
+        "和插件一起把“工作流 + 工具 + 登录态”组合起来。"
+      ],
+      "not": [
+        "不是普通网页搜索。",
+        "不是自动拥有你所有账号权限。",
+        "不等于 MCP server。",
+        "不等于本地文件访问。"
+      ],
+      "mistakes": [
+        "以为能搜索互联网就等于能看自己的私有应用。",
+        "忘记外部应用通常需要安装、登录和授权。",
+        "把插件安装成功误认为连接应用也成功。",
+        "不区分只读权限和可写动作。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "用户授权、应用账号、插件或连接配置。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 通过连接器读取数据或执行允许的动作。"
+        },
+        {
+          "label": "输出",
+          "value": "应用数据摘要、评论、文档修改、邮件草稿等。"
+        },
+        {
+          "label": "风险",
+          "value": "授权范围不清、私有数据泄露、误操作外部系统。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "插件-plugin",
+        "mcp服务器-mcp-server",
+        "工具调用-tool-use",
+        "权限-permissions"
+      ]
+    },
+    {
       "id": "api",
       "title": "接口（API）",
       "chinese": "接口",
@@ -1131,6 +1405,168 @@ window.AI_DICT_DATA = {
       ]
     },
     {
+      "id": "codex",
+      "title": "Codex",
+      "chinese": "Codex",
+      "english": "Codex",
+      "layer": "action",
+      "layerName": "行动层",
+      "sourceLevel": "官方已核",
+      "path": "40_行动层/Codex.md",
+      "audio": "audio/codex.m4a",
+      "oneLine": "Codex 是 OpenAI 的软件开发代理，可以理解代码、修改文件、运行命令、检查结果，并把任务推进到可交付状态。",
+      "solves": [
+        "把“问 AI 怎么做”升级成“让 AI 实际做一部分工作”。",
+        "让模型进入真实项目目录，读文件、改代码、跑检查。",
+        "把聊天、工具调用、版本控制和验证串成一个工作循环。",
+        "让人把精力放在目标、判断和验收上。"
+      ],
+      "not": [
+        "不是普通聊天机器人。",
+        "不是自动正确的开发者。",
+        "不是可以无边界访问你电脑的一切能力。",
+        "不是替代 Git、测试和人工判断的魔法层。"
+      ],
+      "mistakes": [
+        "只把 Codex 当成“更会写代码的 ChatGPT”。",
+        "不给项目规则、验收标准和边界，却期待它稳定交付。",
+        "没检查工作目录、权限、分支和部署目标就让它改动。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "用户目标、项目文件、指令、上下文和权限边界。"
+        },
+        {
+          "label": "处理",
+          "value": "读代码、制定步骤、调用工具、编辑文件、运行检查。"
+        },
+        {
+          "label": "输出",
+          "value": "代码改动、解释、验证结果、部署或 PR。"
+        },
+        {
+          "label": "风险",
+          "value": "目标不清、权限过大、验证不足、误改用户文件。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "agent",
+        "工具调用-tool-use",
+        "工作流-workflow",
+        "评估-eval"
+      ]
+    },
+    {
+      "id": "codex自动化-codex-automation",
+      "title": "Codex 自动化（Codex Automation）",
+      "chinese": "Codex 自动化",
+      "english": "Codex Automation",
+      "layer": "action",
+      "layerName": "行动层",
+      "sourceLevel": "官方已核",
+      "path": "40_行动层/Codex自动化 Codex Automation.md",
+      "audio": "audio/codex自动化-codex-automation.m4a",
+      "oneLine": "Codex 自动化是让 Codex 按计划在后台执行任务、检查结果，并把有价值的发现放进收件箱或回到同一线程。",
+      "solves": [
+        "定时检查长任务、PR、指标、部署或资料更新。",
+        "把重复的检查和跟进交给后台运行。",
+        "让线程自动化保留当前对话上下文。",
+        "让独立自动化每次按新任务运行并产出独立结果。"
+      ],
+      "not": [
+        "不是普通定时提醒。",
+        "不是所有自动化都应该直接改文件。",
+        "不是不需要权限和沙盒边界。",
+        "不是创建后就永远不用检查。"
+      ],
+      "mistakes": [
+        "没先手动跑通流程就定时自动化。",
+        "不区分 thread automation 和 standalone automation。",
+        "在 Git 项目中不考虑是否用工作树隔离后台改动。",
+        "忽略后台自动化的权限风险。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "任务提示、频率、项目范围、运行环境、权限设置。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 按计划后台执行，必要时调用 skills 和 plugins。"
+        },
+        {
+          "label": "输出",
+          "value": "收件箱发现、线程回复、文件改动或 PR。"
+        },
+        {
+          "label": "风险",
+          "value": "提示不稳定、权限过大、重复运行制造噪音。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "自动化-automation",
+        "工作树-worktree",
+        "技能-skills",
+        "权限-permissions"
+      ]
+    },
+    {
+      "id": "codex使用入口-surfaces",
+      "title": "Codex 使用入口（Codex Surfaces）",
+      "chinese": "Codex 使用入口",
+      "english": "Codex Surfaces",
+      "layer": "action",
+      "layerName": "行动层",
+      "sourceLevel": "官方已核",
+      "path": "40_行动层/Codex使用入口 Surfaces.md",
+      "audio": "audio/codex使用入口-surfaces.m4a",
+      "oneLine": "Codex 使用入口是你和 Codex 协作的不同界面，包括桌面 App、CLI、IDE 扩展、Web、Cloud 和 SDK 等。",
+      "solves": [
+        "让同一个 Codex 能适配不同工作场景。",
+        "桌面 App 适合多线程、审查、规划和本地交互。",
+        "CLI 适合终端里的项目工作和脚本化执行。",
+        "IDE 扩展适合贴着编辑器改代码。"
+      ],
+      "not": [
+        "不是不同的 AI 概念体系。",
+        "不是所有入口都有完全相同的工具和权限。",
+        "不是换入口就能绕过项目规则或安全边界。"
+      ],
+      "mistakes": [
+        "以为 App、CLI、IDE、Web 的能力和状态完全一样。",
+        "忽略某些入口依赖本地文件，某些入口依赖云端环境。",
+        "把浏览器、Chrome 扩展、Computer Use 和普通网页搜索混在一起。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "同一个目标，但来自不同入口。"
+        },
+        {
+          "label": "处理",
+          "value": "入口决定可用工具、文件位置、登录态和交互方式。"
+        },
+        {
+          "label": "输出",
+          "value": "本地改动、远端任务、PR、报告或自动化结果。"
+        },
+        {
+          "label": "风险",
+          "value": "入口选错，导致文件不在同一个环境，或者验证不在真实目标上发生。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "codex",
+        "工作树-worktree",
+        "自动化-automation",
+        "mcp"
+      ]
+    },
+    {
       "id": "function-calling",
       "title": "函数调用（Function Calling）",
       "chinese": "函数调用",
@@ -1180,6 +1616,166 @@ window.AI_DICT_DATA = {
         "api",
         "结构化输出-structured-output",
         "护栏-guardrails"
+      ]
+    },
+    {
+      "id": "交接-handoff",
+      "title": "交接（Handoff）",
+      "chinese": "交接",
+      "english": "Handoff",
+      "layer": "action",
+      "layerName": "行动层",
+      "sourceLevel": "官方已核",
+      "path": "40_行动层/交接 Handoff.md",
+      "audio": "audio/交接-handoff.m4a",
+      "oneLine": "交接是 Codex 把一个线程和它的代码改动在本地检出与工作树之间移动的流程。",
+      "solves": [
+        "让后台工作可以回到你的本地主工作现场。",
+        "让本地进行中的线程可以转到工作树里继续后台推进。",
+        "避免人手动搬文件、切分支、处理 Git 限制时出错。"
+      ],
+      "not": [
+        "不是复制粘贴文件。",
+        "不是部署。",
+        "不是自动合并所有冲突。",
+        "不是把未被 Git 跟踪的所有东西都保证带走。"
+      ],
+      "mistakes": [
+        "以为 Handoff 只是换个聊天窗口。",
+        "忽略 Git 分支同一时间只能在一个工作树里检出。",
+        "没看清楚交接后线程实际绑定到哪个目录。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "一个线程、一个源环境、一个目标环境。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 处理必要的 Git 移动和目录绑定。"
+        },
+        {
+          "label": "输出",
+          "value": "同一线程继续在另一个文件现场工作。"
+        },
+        {
+          "label": "风险",
+          "value": "未跟踪文件、依赖环境和分支状态没有被正确理解。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "工作树-worktree",
+        "本地检出-local-checkout",
+        "codex使用入口-surfaces",
+        "trace"
+      ]
+    },
+    {
+      "id": "本地检出-local-checkout",
+      "title": "本地检出（Local Checkout）",
+      "chinese": "本地检出",
+      "english": "Local Checkout",
+      "layer": "action",
+      "layerName": "行动层",
+      "sourceLevel": "官方已核",
+      "path": "40_行动层/本地检出 Local Checkout.md",
+      "audio": "audio/本地检出-local-checkout.m4a",
+      "oneLine": "本地检出是你原本打开的 Git 项目目录，也就是你平时在编辑器、终端和文件系统里直接操作的主工作现场。",
+      "solves": [
+        "给 Codex 一个明确的“当前项目现场”。",
+        "区分你正在看的本地目录和 Codex 后台创建的工作树。",
+        "帮助判断文件改动、测试和部署到底发生在哪里。"
+      ],
+      "not": [
+        "不是所有 Codex 任务天然共享的唯一环境。",
+        "不是工作树。",
+        "不是云端任务环境。",
+        "不是只要对话在同一线程就一定在同一文件现场。"
+      ],
+      "mistakes": [
+        "只看 Codex 对话，不确认当前目录。",
+        "在工作树里生成了改动，却以为本地目录已经同步。",
+        "把浏览器看到的页面、部署仓库和本地检出混成一个对象。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "用户选择的项目目录。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 在这个目录里读文件、编辑、运行命令或交接工作。"
+        },
+        {
+          "label": "输出",
+          "value": "本地文件改动、测试结果、Git 状态。"
+        },
+        {
+          "label": "风险",
+          "value": "没有确认目录，导致改了另一个项目或另一个工作树。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "工作树-worktree",
+        "交接-handoff",
+        "codex",
+        "trace"
+      ]
+    },
+    {
+      "id": "mcp服务器-mcp-server",
+      "title": "MCP 服务器（MCP Server）",
+      "chinese": "MCP 服务器",
+      "english": "MCP Server",
+      "layer": "action",
+      "layerName": "行动层",
+      "sourceLevel": "官方已核",
+      "path": "40_行动层/MCP服务器 MCP Server.md",
+      "audio": "audio/mcp服务器-mcp-server.m4a",
+      "oneLine": "MCP Server 是把外部工具、数据或资源按 MCP 协议暴露给 Codex 的服务端连接。",
+      "solves": [
+        "让 Codex 可以接入外部文档、浏览器、Figma、GitHub、数据库等能力。",
+        "用统一配置方式管理工具来源、认证、超时和允许的工具。",
+        "把复杂系统封装成 Codex 可理解和调用的工具集合。"
+      ],
+      "not": [
+        "不是 MCP 概念本身，而是一个具体服务。",
+        "不是所有插件都必须包含的东西。",
+        "不是装上就自动可信。",
+        "不是取代 API，而是可能包装 API。"
+      ],
+      "mistakes": [
+        "以为配置了 MCP server，Codex 就一定能用所有工具。",
+        "忽略 OAuth、Bearer token、环境变量和工具允许列表。",
+        "不看服务器 instructions，导致误用工具。",
+        "不限制工具范围，让 Codex 面对太多不必要能力。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "服务器地址或启动命令、认证信息、工具清单、权限策略。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 启动或连接 MCP server，并把工具暴露给模型。"
+        },
+        {
+          "label": "输出",
+          "value": "可调用的外部工具、资源或上下文。"
+        },
+        {
+          "label": "风险",
+          "value": "认证失败、工具过宽、超时、返回内容不可信。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "mcp",
+        "工具调用-tool-use",
+        "插件-plugin",
+        "权限-permissions"
       ]
     },
     {
@@ -1338,6 +1934,61 @@ window.AI_DICT_DATA = {
       ]
     },
     {
+      "id": "插件-plugin",
+      "title": "插件（Plugin）",
+      "chinese": "插件",
+      "english": "Plugin",
+      "layer": "action",
+      "layerName": "行动层",
+      "sourceLevel": "官方已核",
+      "path": "40_行动层/插件 Plugin.md",
+      "audio": "audio/插件-plugin.m4a",
+      "oneLine": "Plugin 是 Codex 的可安装能力包，可以把 skills、应用连接、MCP 服务器和相关配置打包成可分发的工作流。",
+      "solves": [
+        "把一个或多个可复用能力打包给别人安装。",
+        "让 skill 和外部工具连接、MCP、应用授权一起分发。",
+        "支持团队、个人或工作区共享稳定能力。",
+        "把“本地写好的流程”升级成“可安装的产品化能力”。"
+      ],
+      "not": [
+        "不等于一个 skill。",
+        "不等于浏览器扩展。",
+        "不一定自带外部应用权限。",
+        "不会绕过 Codex 的审批、沙盒和权限边界。"
+      ],
+      "mistakes": [
+        "把 plugin 和 skill 混用。",
+        "还在个人本地试错阶段就急着打包成 plugin。",
+        "忽略插件里的应用和 MCP 可能需要额外登录或授权。",
+        "没有区分“已安装”和“已启用”。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "插件清单、skills、apps、MCP 配置、权限和安装状态。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 安装后在任务中加载对应能力。"
+        },
+        {
+          "label": "输出",
+          "value": "可复用的跨工具工作流。"
+        },
+        {
+          "label": "风险",
+          "value": "来源不可信、授权不清、能力边界不明确。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "技能-skills",
+        "应用连接-app-connector",
+        "mcp服务器-mcp-server",
+        "权限-permissions"
+      ]
+    },
+    {
       "id": "反思-reflection",
       "title": "反思（Reflection）",
       "chinese": "反思",
@@ -1387,6 +2038,60 @@ window.AI_DICT_DATA = {
         "评估-eval",
         "trace",
         "失败模式-failure-mode"
+      ]
+    },
+    {
+      "id": "子代理-subagent",
+      "title": "子代理（Subagent）",
+      "chinese": "子代理",
+      "english": "Subagent",
+      "layer": "action",
+      "layerName": "行动层",
+      "sourceLevel": "官方已核",
+      "path": "40_行动层/子代理 Subagent.md",
+      "audio": "audio/子代理-subagent.m4a",
+      "oneLine": "Subagent 是 Codex 为某个子任务临时启动的专门代理，用来并行探索、测试、审查或总结，然后把结果汇总给主线程。",
+      "solves": [
+        "把大型任务拆成可以并行处理的部分。",
+        "避免主线程被大量日志、搜索结果和中间过程污染。",
+        "让不同代理分别关注安全、测试、可维护性等不同角度。",
+        "加速读多、查多、对比多的任务。"
+      ],
+      "not": [
+        "不是普通角色扮演。",
+        "不是 Codex 每次都会自动启动的能力。",
+        "不是越多越好；子代理会消耗更多 token 和协调成本。",
+        "不适合没有边界的并行写入任务。"
+      ],
+      "mistakes": [
+        "把“多个观点发言”误认为 subagent workflow。",
+        "没说明每个子代理负责什么、何时汇总、输出什么。",
+        "让多个代理同时改同一批文件，制造冲突。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "主任务、拆分规则、子代理角色和输出要求。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 启动并行代理，各自读文件、分析或验证。"
+        },
+        {
+          "label": "输出",
+          "value": "多个子结论和主线程汇总。"
+        },
+        {
+          "label": "风险",
+          "value": "成本上升、结论冲突、重复探索、写入冲突。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "多agent-multi-agent",
+        "agent",
+        "trace",
+        "成本-cost"
       ]
     },
     {
@@ -1491,6 +2196,116 @@ window.AI_DICT_DATA = {
         "agent",
         "工具调用-tool-use",
         "评估-eval"
+      ]
+    },
+    {
+      "id": "工作树-worktree",
+      "title": "工作树（Worktree）",
+      "chinese": "工作树",
+      "english": "Worktree",
+      "layer": "action",
+      "layerName": "行动层",
+      "sourceLevel": "官方已核",
+      "path": "40_行动层/工作树 Worktree.md",
+      "audio": "audio/工作树-worktree.m4a",
+      "oneLine": "工作树是同一个 Git 仓库的另一份可工作的文件现场，让 Codex 可以在后台并行做任务，而不打扰你当前本地目录。",
+      "solves": [
+        "让多个任务能在同一个项目中并行推进。",
+        "把 Codex 的后台改动和你当前本地改动隔离开。",
+        "让自动化、实验方案和临时探索不污染主工作现场。",
+        "让线程可以从后台工作树交接回本地目录。"
+      ],
+      "not": [
+        "不是普通文件夹复制。",
+        "不是独立的新仓库。",
+        "不是和原仓库完全无关的沙盒。",
+        "不是不需要 Git 的功能；Codex 工作树依赖 Git 仓库。"
+      ],
+      "mistakes": [
+        "以为 Codex 分叉对话就会隔离真实文件。",
+        "以为同一个分支可以同时在多个工作树里被检出。",
+        "忘记未纳入 Git 的文件不一定能随工作树一起移动。",
+        "在工作树里跑不起来项目，却没意识到依赖或本地环境没同步。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "一个 Git 仓库、起始分支、线程任务。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 基于仓库创建独立文件现场并执行任务。"
+        },
+        {
+          "label": "输出",
+          "value": "后台改动、分支、PR 或可交接回本地的工作。"
+        },
+        {
+          "label": "风险",
+          "value": "分支归属混乱、依赖缺失、未跟踪文件没被带过去。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "本地检出-local-checkout",
+        "交接-handoff",
+        "codex使用入口-surfaces",
+        "自动化-automation"
+      ]
+    },
+    {
+      "id": "审批-approval",
+      "title": "审批（Approval）",
+      "chinese": "审批",
+      "english": "Approval",
+      "layer": "evaluation",
+      "layerName": "评估层",
+      "sourceLevel": "官方已核",
+      "path": "50_评估层/审批 Approval.md",
+      "audio": "audio/审批-approval.m4a",
+      "oneLine": "审批是 Codex 在执行某些敏感动作前停下来请求用户确认的机制。",
+      "solves": [
+        "让越界文件修改、联网、安装依赖、危险命令等动作有人工确认。",
+        "在效率和安全之间建立可调节的协作方式。",
+        "让用户知道 Codex 准备做什么、为什么需要更高权限。",
+        "给高风险动作留下决策点。"
+      ],
+      "not": [
+        "不是所有任务都必须打断用户。",
+        "不是测试通过。",
+        "不是权限本身，而是权限动作前的确认流程。",
+        "不是让用户替 Codex 思考每一步。"
+      ],
+      "mistakes": [
+        "把审批弹窗当成错误。",
+        "没看清 Codex 申请的动作和理由就同意。",
+        "对高风险任务设置 never，却没有其他保护。",
+        "低风险重复任务要求每步审批，导致流程无法推进。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "审批策略、沙盒状态、工具调用意图。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 判断是否可以直接执行，或需要请求确认。"
+        },
+        {
+          "label": "输出",
+          "value": "执行、拒绝、等待用户确认或寻找替代方案。"
+        },
+        {
+          "label": "风险",
+          "value": "误批危险动作、审批过多、审批说明不清。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "沙盒-sandbox",
+        "权限-permissions",
+        "人在回路-human-in-the-loop",
+        "护栏-guardrails"
       ]
     },
     {
@@ -1752,6 +2567,61 @@ window.AI_DICT_DATA = {
       ]
     },
     {
+      "id": "钩子-hooks",
+      "title": "钩子（Hooks）",
+      "chinese": "钩子",
+      "english": "Hooks",
+      "layer": "evaluation",
+      "layerName": "评估层",
+      "sourceLevel": "官方已核",
+      "path": "50_评估层/钩子 Hooks.md",
+      "audio": "audio/钩子-hooks.m4a",
+      "oneLine": "Hooks 是 Codex 的生命周期扩展点，可以在工具调用前后、用户提交、压缩、停止等节点运行脚本或检查。",
+      "solves": [
+        "在关键动作前后插入团队自定义检查。",
+        "记录对话、扫描敏感信息、执行质量门或生成记忆。",
+        "把“每次都要检查”的流程自动化。",
+        "让组织或个人把安全与质量要求嵌入代理循环。"
+      ],
+      "not": [
+        "不是普通 prompt。",
+        "不是 skill。",
+        "不是业务逻辑本身。",
+        "不是不需要信任审查的任意脚本。"
+      ],
+      "mistakes": [
+        "把 hooks 当作替代测试。",
+        "不审查 hooks 就运行不可信脚本。",
+        "在项目子目录用相对路径，导致不同启动目录下失效。",
+        "忽略多个匹配 hooks 可能并发运行。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "hook 事件、匹配规则、命令脚本、超时设置。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 在对应生命周期节点触发 hook。"
+        },
+        {
+          "label": "输出",
+          "value": "日志、阻断、提醒、额外检查或自动整理。"
+        },
+        {
+          "label": "风险",
+          "value": "脚本不可信、误阻断、运行太慢、路径不稳定。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "规则-rules",
+        "codex配置-config-toml",
+        "护栏-guardrails",
+        "评估-eval"
+      ]
+    },
+    {
       "id": "人在回路-human-in-the-loop",
       "title": "人在回路（Human-in-the-loop）",
       "chinese": "人在回路",
@@ -1906,6 +2776,61 @@ window.AI_DICT_DATA = {
       ]
     },
     {
+      "id": "权限-permissions",
+      "title": "权限（Permissions）",
+      "chinese": "权限",
+      "english": "Permissions",
+      "layer": "evaluation",
+      "layerName": "评估层",
+      "sourceLevel": "官方已核",
+      "path": "50_评估层/权限 Permissions.md",
+      "audio": "audio/权限-permissions.m4a",
+      "oneLine": "权限是 Codex 能读写哪些文件、能不能访问网络、哪些命令需要限制的边界配置。",
+      "solves": [
+        "控制 Codex 对本机文件系统和网络的访问范围。",
+        "用最小必要权限降低误改、泄露和越权风险。",
+        "让不同项目可以有不同安全姿态。",
+        "给自动化和后台任务设置更可控的边界。"
+      ],
+      "not": [
+        "不是信任感。",
+        "不是任务质量保证。",
+        "不是护栏的全部。",
+        "不是越宽越方便就越好。"
+      ],
+      "mistakes": [
+        "为了省事长期使用最大权限。",
+        "没区分 read、write、deny。",
+        "忽略网络权限和本地私有服务访问。",
+        "自动化任务沿用过宽权限。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "文件系统规则、网络规则、项目根目录和权限 profile。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 的工具调用受到这些规则约束。"
+        },
+        {
+          "label": "输出",
+          "value": "允许、拒绝或需要审批的动作。"
+        },
+        {
+          "label": "风险",
+          "value": "规则过宽、deny 漏配、项目根目录判断错误。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "沙盒-sandbox",
+        "审批-approval",
+        "护栏-guardrails",
+        "codex配置-config-toml"
+      ]
+    },
+    {
       "id": "prompt-injection",
       "title": "提示词注入（Prompt Injection）",
       "chinese": "提示词注入",
@@ -1953,6 +2878,116 @@ window.AI_DICT_DATA = {
         "护栏-guardrails",
         "工具调用-tool-use",
         "人在回路-human-in-the-loop"
+      ]
+    },
+    {
+      "id": "规则-rules",
+      "title": "规则（Rules）",
+      "chinese": "规则",
+      "english": "Rules",
+      "layer": "evaluation",
+      "layerName": "评估层",
+      "sourceLevel": "官方已核",
+      "path": "50_评估层/规则 Rules.md",
+      "audio": "audio/规则-rules.m4a",
+      "oneLine": "Rules 是 Codex 用来允许、询问或禁止某类命令的规则系统，帮助控制工具调用边界。",
+      "solves": [
+        "把常见命令的处理方式从临时判断变成稳定规则。",
+        "对安全敏感命令设置强制询问或禁止。",
+        "对可信低风险命令减少重复打断。",
+        "和沙盒、审批一起形成更细的执行边界。"
+      ],
+      "not": [
+        "不是 AGENTS.md。",
+        "不是代码质量规则。",
+        "不是 hook 脚本。",
+        "不是模型自己理解的抽象偏好，而是面向命令执行的控制规则。"
+      ],
+      "mistakes": [
+        "把 rules 写成宽泛建议，而不是可匹配的命令前缀。",
+        "以为 allow 就代表命令一定安全。",
+        "忽略更严格规则优先。",
+        "没给 forbidden 规则写清替代方案。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "命令 pattern、decision、justification。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 在命令执行前匹配规则。"
+        },
+        {
+          "label": "输出",
+          "value": "允许、询问或禁止。"
+        },
+        {
+          "label": "风险",
+          "value": "规则过窄漏掉危险命令，规则过宽阻断正常工作。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "钩子-hooks",
+        "审批-approval",
+        "沙盒-sandbox",
+        "权限-permissions"
+      ]
+    },
+    {
+      "id": "沙盒-sandbox",
+      "title": "沙盒（Sandbox）",
+      "chinese": "沙盒",
+      "english": "Sandbox",
+      "layer": "evaluation",
+      "layerName": "评估层",
+      "sourceLevel": "官方已核",
+      "path": "50_评估层/沙盒 Sandbox.md",
+      "audio": "audio/沙盒-sandbox.m4a",
+      "oneLine": "沙盒是 Codex 运行命令和访问文件时的隔离边界，用来限制它能触碰的范围。",
+      "solves": [
+        "防止命令随意影响整个电脑。",
+        "限制文件写入、网络访问和危险操作。",
+        "让不同信任等级的项目使用不同执行模式。",
+        "在自动化和工具调用中降低失控风险。"
+      ],
+      "not": [
+        "不是代码正确性保证。",
+        "不是网络安全的全部。",
+        "不是可以替代人工验收的机制。",
+        "不是越严格越适合所有任务；太严格会阻塞必要动作。"
+      ],
+      "mistakes": [
+        "不知道当前处于只读、工作区写入还是 full access。",
+        "把沙盒限制误判为代码错误。",
+        "为了部署或联网一律开最大权限。",
+        "没给自动化设置合适的默认沙盒。"
+      ],
+      "product": [
+        {
+          "label": "输入",
+          "value": "sandbox mode、权限 profile、工作区根目录。"
+        },
+        {
+          "label": "处理",
+          "value": "Codex 工具调用被限制在允许范围内。"
+        },
+        {
+          "label": "输出",
+          "value": "动作成功、被拒绝、或转为审批请求。"
+        },
+        {
+          "label": "风险",
+          "value": "边界误配、权限过宽、必要文件不在工作区。"
+        }
+      ],
+      "reviewQuestion": "",
+      "related": [
+        "权限-permissions",
+        "审批-approval",
+        "护栏-guardrails",
+        "工具调用-tool-use"
       ]
     },
     {
