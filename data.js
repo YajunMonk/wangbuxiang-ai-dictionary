@@ -1,5 +1,5 @@
 window.AI_DICT_DATA = {
-  "generatedAt": "2026-06-16T02:33:08.935Z",
+  "generatedAt": "2026-06-16T04:46:01.356Z",
   "sourceRoot": "02_领域/AI能力/AI概念字典",
   "layers": [
     {
@@ -36,7 +36,7 @@ window.AI_DICT_DATA = {
       "stage": "Stage 04",
       "short": "AI 怎么调用工具和推进任务",
       "color": "#ff6b6b",
-      "count": 22
+      "count": 20
     },
     {
       "id": "evaluation",
@@ -56,9 +56,12 @@ window.AI_DICT_DATA = {
       "english": "Context Window",
       "layer": "model",
       "layerName": "模型层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "10_模型层/上下文窗口.md",
       "audio": "audio/上下文窗口.m4a",
+      "visualType": "window",
+      "visual": "像一张有限桌面，能摆上的资料才会被模型看见。",
       "oneLine": "上下文窗口是模型一次能看到的最大信息范围。",
       "solves": [
         "决定一次对话或任务里能放多少材料。",
@@ -107,9 +110,12 @@ window.AI_DICT_DATA = {
       "english": "Hallucination",
       "layer": "model",
       "layerName": "模型层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "10_模型层/幻觉 Hallucination.md",
       "audio": "audio/幻觉-hallucination.m4a",
+      "visualType": "risk",
+      "visual": "像导航在没有地图时仍画出一条看似合理的路。",
       "oneLine": "幻觉是模型把不确定、错误或不存在的信息说得像真的一样。",
       "solves": [
         "它不是能力，而是一类必须管理的风险。"
@@ -156,9 +162,12 @@ window.AI_DICT_DATA = {
       "english": "Large Language Model",
       "layer": "model",
       "layerName": "模型层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "10_模型层/大语言模型 LLM.md",
       "audio": "audio/大语言模型-llm.m4a",
+      "visualType": "model",
+      "visual": "像一座语言发动机，输入任务和材料，输出回答、代码或表格。",
       "oneLine": "大语言模型是一个根据输入上下文生成语言、代码、结构化内容和推理步骤的概率模型。",
       "solves": [
         "把自然语言变成可交互的计算入口。",
@@ -208,9 +217,12 @@ window.AI_DICT_DATA = {
       "english": "Reasoning Model",
       "layer": "model",
       "layerName": "模型层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "10_模型层/推理模型 Reasoning Model.md",
       "audio": "audio/推理模型-reasoning-model.m4a",
+      "visualType": "reasoning",
+      "visual": "像慢一点的解题工作台，会先拆步骤再给答案。",
       "oneLine": "推理模型更擅长多步思考、复杂约束、代码、数学和需要规划的任务。",
       "solves": [
         "处理步骤多、约束多、容易出错的任务。",
@@ -259,9 +271,12 @@ window.AI_DICT_DATA = {
       "english": "Token",
       "layer": "model",
       "layerName": "模型层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "10_模型层/Token.md",
       "audio": "audio/token.m4a",
+      "visualType": "token",
+      "visual": "像把一句话切成小积木，模型按这些积木计算和生成。",
       "oneLine": "Token 是模型处理文本的基本单位，可以粗略理解为“被模型切开的文字片段”。",
       "solves": [
         "让模型把文本转成可计算的输入和输出。",
@@ -309,9 +324,16 @@ window.AI_DICT_DATA = {
       "english": "AGENTS.md",
       "layer": "instruction",
       "layerName": "指令层",
+      "aliases": [
+        "Agents Markdown",
+        "项目指令文件",
+        "Codex 项目规则"
+      ],
       "sourceLevel": "官方已核",
       "path": "20_指令层/AGENTS.md.md",
       "audio": "audio/agents-md.m4a",
+      "visualType": "rulebook",
+      "visual": "像贴在项目门口的长期工作守则，Codex 进门先读。",
       "oneLine": "AGENTS.md 是 Codex 在项目里读取的长期协作说明，用来放项目规则、验证方式、编码约定和工作边界。",
       "solves": [
         "避免每次开新线程都重复讲项目规则。",
@@ -364,9 +386,16 @@ window.AI_DICT_DATA = {
       "english": "Config.toml",
       "layer": "instruction",
       "layerName": "指令层",
+      "aliases": [
+        "config.toml",
+        "Codex Configuration",
+        "Codex配置"
+      ],
       "sourceLevel": "官方已核",
       "path": "20_指令层/Codex配置 Config.toml.md",
       "audio": "audio/codex配置-config-toml.m4a",
+      "visualType": "config",
+      "visual": "像 Codex 的控制面板，模型、权限和连接都在这里设定。",
       "oneLine": "Config.toml 是 Codex 的配置文件，用来设置模型、权限、MCP、hooks、项目配置和其他运行默认值。",
       "solves": [
         "把 Codex 的运行偏好从聊天里移到可持久配置。",
@@ -407,7 +436,7 @@ window.AI_DICT_DATA = {
       "reviewQuestion": "",
       "related": [
         "agents-md",
-        "mcp服务器-mcp-server",
+        "mcp",
         "钩子-hooks",
         "权限-permissions"
       ]
@@ -419,9 +448,12 @@ window.AI_DICT_DATA = {
       "english": "Few-shot",
       "layer": "instruction",
       "layerName": "指令层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "20_指令层/Few-shot.md",
       "audio": "audio/few-shot.m4a",
+      "visualType": "examples",
+      "visual": "像给两三个标准样张，让模型照着版式继续做。",
       "oneLine": "Few-shot 是用少量示例告诉模型“照这个样子做”。",
       "solves": [
         "让模型理解风格、格式、判断标准。",
@@ -470,9 +502,12 @@ window.AI_DICT_DATA = {
       "english": "Prompt",
       "layer": "instruction",
       "layerName": "指令层",
+      "aliases": [],
       "sourceLevel": "官方已核",
       "path": "20_指令层/Prompt.md",
       "audio": "audio/prompt.m4a",
+      "visualType": "prompt",
+      "visual": "像写给助手的任务单，越清楚越容易执行。",
       "oneLine": "Prompt 是你给模型的任务说明。",
       "solves": [
         "说明目标、背景、约束、角色、输出格式。",
@@ -522,9 +557,12 @@ window.AI_DICT_DATA = {
       "english": "Structured Outputs",
       "layer": "instruction",
       "layerName": "指令层",
+      "aliases": [],
       "sourceLevel": "官方已核",
       "path": "20_指令层/结构化输出 Structured Output.md",
       "audio": "audio/结构化输出-structured-output.m4a",
+      "visualType": "output",
+      "visual": "像给答案套上表格模具，每个字段都有固定位置。",
       "oneLine": "结构化输出是让模型按固定格式返回内容，比如 JSON、表格、字段清单或固定段落。",
       "solves": [
         "让结果可解析、可检查、可进入下一步流程。",
@@ -574,9 +612,12 @@ window.AI_DICT_DATA = {
       "english": "System Prompt",
       "layer": "instruction",
       "layerName": "指令层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "20_指令层/System Prompt.md",
       "audio": "audio/system-prompt.m4a",
+      "visualType": "rulebook",
+      "visual": "像场馆里的总规矩，所有任务都要先遵守它。",
       "oneLine": "System Prompt 是系统层面对模型行为的长期规则和边界。",
       "solves": [
         "统一产品里的助手身份、语气、限制和优先级。",
@@ -626,9 +667,12 @@ window.AI_DICT_DATA = {
       "english": "Chunking",
       "layer": "context",
       "layerName": "上下文层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "30_上下文层/Chunking.md",
       "audio": "audio/chunking.m4a",
+      "visualType": "chunks",
+      "visual": "像把长书切成合适卡片，方便检索和放进上下文。",
       "oneLine": "Chunking 是把长资料切成适合检索和放进上下文的小片段。",
       "solves": [
         "让长文档能进入检索系统。",
@@ -678,9 +722,16 @@ window.AI_DICT_DATA = {
       "english": "Codex Memories",
       "layer": "context",
       "layerName": "上下文层",
+      "aliases": [
+        "Memories",
+        "Codex Memory",
+        "本地记忆"
+      ],
       "sourceLevel": "官方已核",
       "path": "30_上下文层/Codex记忆 Codex Memories.md",
       "audio": "audio/codex记忆-codex-memories.m4a",
+      "visualType": "memory",
+      "visual": "像 Codex 的项目经验卡，记录你过去反复强调过的习惯。",
       "oneLine": "Codex Memories 是 Codex 从以往线程中提取的稳定偏好、项目习惯和已知坑点，用来帮助未来任务少重复上下文。",
       "solves": [
         "让 Codex 记住稳定偏好和长期工作方式。",
@@ -733,9 +784,12 @@ window.AI_DICT_DATA = {
       "english": "Context",
       "layer": "context",
       "layerName": "上下文层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "30_上下文层/上下文 Context.md",
       "audio": "audio/上下文-context.m4a",
+      "visualType": "context",
+      "visual": "像模型眼前的材料包，当前能看见什么就会影响答案。",
       "oneLine": "上下文是模型当前能看到、并会用来生成答案的全部信息。",
       "solves": [
         "让模型知道任务背景、用户意图、参考资料和输出要求。",
@@ -784,9 +838,12 @@ window.AI_DICT_DATA = {
       "english": "Context Engineering",
       "layer": "context",
       "layerName": "上下文层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "30_上下文层/上下文工程 Context Engineering.md",
       "audio": "audio/上下文工程-context-engineering.m4a",
+      "visualType": "context",
+      "visual": "像布置工作台，决定哪些材料先放、哪些噪音拿走。",
       "oneLine": "上下文工程是系统性设计模型在每一步应该看到什么、忽略什么、按什么顺序看。",
       "solves": [
         "让模型拿到刚好够用的信息。",
@@ -836,9 +893,12 @@ window.AI_DICT_DATA = {
       "english": "Embedding",
       "layer": "context",
       "layerName": "上下文层",
+      "aliases": [],
       "sourceLevel": "官方已核",
       "path": "30_上下文层/Embedding.md",
       "audio": "audio/embedding.m4a",
+      "visualType": "vector",
+      "visual": "像给文字做语义坐标，让相近意思靠得更近。",
       "oneLine": "Embedding 是把文本、图片或其他内容变成一组数字，用来表示它们的语义位置。",
       "solves": [
         "让系统可以按“意思相近”搜索，而不是只按关键词搜索。",
@@ -887,9 +947,12 @@ window.AI_DICT_DATA = {
       "english": "Knowledge Base",
       "layer": "context",
       "layerName": "上下文层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "30_上下文层/知识库.md",
       "audio": "audio/知识库.m4a",
+      "visualType": "library",
+      "visual": "像整理好的资料馆，供 AI 查阅和引用。",
       "oneLine": "知识库是被整理、存储、检索和复用的资料集合。",
       "solves": [
         "把个人经验、业务资料、产品文档和案例沉淀下来。",
@@ -939,9 +1002,12 @@ window.AI_DICT_DATA = {
       "english": "Memory",
       "layer": "context",
       "layerName": "上下文层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "30_上下文层/记忆 Memory.md",
       "audio": "audio/记忆-memory.m4a",
+      "visualType": "memory",
+      "visual": "像助手的小本子，记住长期偏好和稳定事实。",
       "oneLine": "记忆是系统跨会话保留的偏好、事实、历史状态或长期经验。",
       "solves": [
         "让 AI 不必每次从零认识用户和项目。",
@@ -991,9 +1057,12 @@ window.AI_DICT_DATA = {
       "english": "Retrieval-Augmented Generation",
       "layer": "context",
       "layerName": "上下文层",
+      "aliases": [],
       "sourceLevel": "官方已核",
       "path": "30_上下文层/RAG.md",
       "audio": "audio/rag.m4a",
+      "visualType": "retrieval",
+      "visual": "像先去资料柜找证据，再带着证据回答问题。",
       "oneLine": "RAG 是先从外部资料中检索相关内容，再让模型基于这些内容回答。",
       "solves": [
         "弥补模型不知道最新资料、私有资料和长尾事实的问题。",
@@ -1044,9 +1113,12 @@ window.AI_DICT_DATA = {
       "english": "Vector Database",
       "layer": "context",
       "layerName": "上下文层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "30_上下文层/向量数据库.md",
       "audio": "audio/向量数据库.m4a",
+      "visualType": "vector-db",
+      "visual": "像按语义位置摆放的仓库，可以找意思相近的片段。",
       "oneLine": "向量数据库用来存储和搜索 Embedding，让系统能找到语义相近的资料片段。",
       "solves": [
         "支撑大规模语义检索。",
@@ -1095,9 +1167,12 @@ window.AI_DICT_DATA = {
       "english": "Agent",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [],
       "sourceLevel": "官方已核",
       "path": "40_行动层/Agent.md",
       "audio": "audio/agent.m4a",
+      "visualType": "agent",
+      "visual": "像带目标的执行者，会观察、行动、检查并继续推进。",
       "oneLine": "Agent 是围绕一个目标，能观察状态、选择行动、调用工具、检查结果并继续推进的 AI 系统。",
       "solves": [
         "处理路径不完全确定的复杂任务。",
@@ -1147,9 +1222,12 @@ window.AI_DICT_DATA = {
       "english": "Agent Loop",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [],
       "sourceLevel": "官方已核",
       "path": "40_行动层/Agent循环.md",
       "audio": "audio/agent循环.m4a",
+      "visualType": "loop",
+      "visual": "像不断转动的循环表盘：观察、计划、行动、检查。",
       "oneLine": "Agent 循环是观察、计划、行动、检查、再行动的循环机制。",
       "solves": [
         "让 AI 不只是一次性回答，而是分步推进。",
@@ -1199,9 +1277,16 @@ window.AI_DICT_DATA = {
       "english": "Agent Skills",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [
+        "Skill",
+        "Agent Skill",
+        "Codex Skills"
+      ],
       "sourceLevel": "官方已核",
       "path": "40_行动层/技能 Skills.md",
       "audio": "audio/技能-skills.m4a",
+      "visualType": "package",
+      "visual": "像可复用的任务配方包，说明步骤，也能带脚本和素材。",
       "oneLine": "Skills 是给 Codex 复用的任务工作流包，通常包含一份 SKILL.md 指令，以及可选的参考资料、脚本和素材。",
       "solves": [
         "把高频任务从“每次重新解释”变成“可复用流程”。",
@@ -1243,7 +1328,7 @@ window.AI_DICT_DATA = {
       "related": [
         "插件-plugin",
         "工作流-workflow",
-        "mcp服务器-mcp-server",
+        "mcp",
         "agents-md"
       ]
     },
@@ -1254,9 +1339,16 @@ window.AI_DICT_DATA = {
       "english": "App Connector",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [
+        "App Integration",
+        "Connector",
+        "应用集成"
+      ],
       "sourceLevel": "官方已核",
       "path": "40_行动层/应用连接 App Connector.md",
       "audio": "audio/应用连接-app-connector.m4a",
+      "visualType": "connector",
+      "visual": "像授权门禁，让 Codex 进入 GitHub、Gmail、Drive 等应用。",
       "oneLine": "应用连接是 Codex 通过授权接入外部应用的能力，让它能读取或操作 GitHub、Gmail、Google Drive 等私有工作数据。",
       "solves": [
         "让 Codex 不只看本地文件，还能进入授权的工作系统。",
@@ -1296,7 +1388,7 @@ window.AI_DICT_DATA = {
       "reviewQuestion": "",
       "related": [
         "插件-plugin",
-        "mcp服务器-mcp-server",
+        "mcp",
         "工具调用-tool-use",
         "权限-permissions"
       ]
@@ -1308,9 +1400,12 @@ window.AI_DICT_DATA = {
       "english": "Application Programming Interface",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "40_行动层/API.md",
       "audio": "audio/api.m4a",
+      "visualType": "api",
+      "visual": "像两个系统之间的服务窗口，按约定递交请求和结果。",
       "oneLine": "API 是软件系统之间互相请求和返回数据的接口。",
       "solves": [
         "让 AI 应用调用外部系统能力。",
@@ -1359,14 +1454,24 @@ window.AI_DICT_DATA = {
       "english": "Automation",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [
+        "Codex Automation",
+        "Codex自动化",
+        "Thread Automation",
+        "Standalone Automation",
+        "Project Automation"
+      ],
       "sourceLevel": "待补",
       "path": "40_行动层/自动化 Automation.md",
       "audio": "audio/自动化-automation.m4a",
-      "oneLine": "自动化是让系统自动执行重复动作，减少人工操作。",
+      "visualType": "automation",
+      "visual": "像设好闹钟和路线的后台小工，按时重复完成稳定动作。",
+      "oneLine": "自动化是让系统按条件或时间自动执行稳定流程；Codex 自动化是把这种后台运行能力交给 Codex 来做检查、跟进或产出。",
       "solves": [
         "提高效率。",
         "降低重复劳动。",
-        "让稳定流程可以持续运行。"
+        "让稳定流程可以持续运行。",
+        "让 Codex 在后台定时检查项目、资料、部署或同一线程的长任务。"
       ],
       "not": [
         "不等于智能。",
@@ -1385,11 +1490,11 @@ window.AI_DICT_DATA = {
         },
         {
           "label": "处理",
-          "value": "按条件执行动作。"
+          "value": "按条件执行动作；在 Codex 里，还可能调用 skills、plugins、MCP 和本地工作树。"
         },
         {
           "label": "输出",
-          "value": "完成的操作或通知。"
+          "value": "完成的操作、通知、线程回复、文件改动或 PR。"
         },
         {
           "label": "风险",
@@ -1401,7 +1506,8 @@ window.AI_DICT_DATA = {
         "工作流-workflow",
         "工具调用-tool-use",
         "日志-log",
-        "兜底-fallback"
+        "兜底-fallback",
+        "权限-permissions"
       ]
     },
     {
@@ -1411,9 +1517,15 @@ window.AI_DICT_DATA = {
       "english": "Codex",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [
+        "OpenAI Codex",
+        "编码代理"
+      ],
       "sourceLevel": "官方已核",
       "path": "40_行动层/Codex.md",
       "audio": "audio/codex.m4a",
+      "visualType": "agent",
+      "visual": "像会进项目现场的开发代理，能读文件、改文件、检查结果。",
       "oneLine": "Codex 是 OpenAI 的软件开发代理，可以理解代码、修改文件、运行命令、检查结果，并把任务推进到可交付状态。",
       "solves": [
         "把“问 AI 怎么做”升级成“让 AI 实际做一部分工作”。",
@@ -1459,70 +1571,24 @@ window.AI_DICT_DATA = {
       ]
     },
     {
-      "id": "codex自动化-codex-automation",
-      "title": "Codex 自动化（Codex Automation）",
-      "chinese": "Codex 自动化",
-      "english": "Codex Automation",
-      "layer": "action",
-      "layerName": "行动层",
-      "sourceLevel": "官方已核",
-      "path": "40_行动层/Codex自动化 Codex Automation.md",
-      "audio": "audio/codex自动化-codex-automation.m4a",
-      "oneLine": "Codex 自动化是让 Codex 按计划在后台执行任务、检查结果，并把有价值的发现放进收件箱或回到同一线程。",
-      "solves": [
-        "定时检查长任务、PR、指标、部署或资料更新。",
-        "把重复的检查和跟进交给后台运行。",
-        "让线程自动化保留当前对话上下文。",
-        "让独立自动化每次按新任务运行并产出独立结果。"
-      ],
-      "not": [
-        "不是普通定时提醒。",
-        "不是所有自动化都应该直接改文件。",
-        "不是不需要权限和沙盒边界。",
-        "不是创建后就永远不用检查。"
-      ],
-      "mistakes": [
-        "没先手动跑通流程就定时自动化。",
-        "不区分 thread automation 和 standalone automation。",
-        "在 Git 项目中不考虑是否用工作树隔离后台改动。",
-        "忽略后台自动化的权限风险。"
-      ],
-      "product": [
-        {
-          "label": "输入",
-          "value": "任务提示、频率、项目范围、运行环境、权限设置。"
-        },
-        {
-          "label": "处理",
-          "value": "Codex 按计划后台执行，必要时调用 skills 和 plugins。"
-        },
-        {
-          "label": "输出",
-          "value": "收件箱发现、线程回复、文件改动或 PR。"
-        },
-        {
-          "label": "风险",
-          "value": "提示不稳定、权限过大、重复运行制造噪音。"
-        }
-      ],
-      "reviewQuestion": "",
-      "related": [
-        "自动化-automation",
-        "工作树-worktree",
-        "技能-skills",
-        "权限-permissions"
-      ]
-    },
-    {
       "id": "codex使用入口-surfaces",
       "title": "Codex 使用入口（Codex Surfaces）",
       "chinese": "Codex 使用入口",
       "english": "Codex Surfaces",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [
+        "Codex App",
+        "Codex CLI",
+        "Codex IDE",
+        "Codex Web",
+        "Codex Cloud"
+      ],
       "sourceLevel": "官方已核",
       "path": "40_行动层/Codex使用入口 Surfaces.md",
       "audio": "audio/codex使用入口-surfaces.m4a",
+      "visualType": "surfaces",
+      "visual": "像同一个代理的不同入口：桌面、终端、网页或云端。",
       "oneLine": "Codex 使用入口是你和 Codex 协作的不同界面，包括桌面 App、CLI、IDE 扩展、Web、Cloud 和 SDK 等。",
       "solves": [
         "让同一个 Codex 能适配不同工作场景。",
@@ -1573,9 +1639,12 @@ window.AI_DICT_DATA = {
       "english": "Function Calling",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [],
       "sourceLevel": "官方已核",
       "path": "40_行动层/Function Calling.md",
       "audio": "audio/function-calling.m4a",
+      "visualType": "function",
+      "visual": "像模型填写一张工具申请单，由代码去真正执行。",
       "oneLine": "Function Calling 是让模型按预设函数格式提出工具调用请求。",
       "solves": [
         "把自然语言意图转成结构化工具参数。",
@@ -1625,9 +1694,15 @@ window.AI_DICT_DATA = {
       "english": "Handoff",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [
+        "Codex Handoff",
+        "线程交接"
+      ],
       "sourceLevel": "官方已核",
       "path": "40_行动层/交接 Handoff.md",
       "audio": "audio/交接-handoff.m4a",
+      "visualType": "handoff",
+      "visual": "像把任务接力棒从后台工作间交回你的本地现场。",
       "oneLine": "交接是 Codex 把一个线程和它的代码改动在本地检出与工作树之间移动的流程。",
       "solves": [
         "让后台工作可以回到你的本地主工作现场。",
@@ -1678,9 +1753,16 @@ window.AI_DICT_DATA = {
       "english": "Local Checkout",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [
+        "Local",
+        "本地工作目录",
+        "本地仓库现场"
+      ],
       "sourceLevel": "官方已核",
       "path": "40_行动层/本地检出 Local Checkout.md",
       "audio": "audio/本地检出-local-checkout.m4a",
+      "visualType": "workspace-home",
+      "visual": "像你桌面上的主工作现场，平时直接打开和编辑的那份项目。",
       "oneLine": "本地检出是你原本打开的 Git 项目目录，也就是你平时在编辑器、终端和文件系统里直接操作的主工作现场。",
       "solves": [
         "给 Codex 一个明确的“当前项目现场”。",
@@ -1725,74 +1807,29 @@ window.AI_DICT_DATA = {
       ]
     },
     {
-      "id": "mcp服务器-mcp-server",
-      "title": "MCP 服务器（MCP Server）",
-      "chinese": "MCP 服务器",
-      "english": "MCP Server",
-      "layer": "action",
-      "layerName": "行动层",
-      "sourceLevel": "官方已核",
-      "path": "40_行动层/MCP服务器 MCP Server.md",
-      "audio": "audio/mcp服务器-mcp-server.m4a",
-      "oneLine": "MCP Server 是把外部工具、数据或资源按 MCP 协议暴露给 Codex 的服务端连接。",
-      "solves": [
-        "让 Codex 可以接入外部文档、浏览器、Figma、GitHub、数据库等能力。",
-        "用统一配置方式管理工具来源、认证、超时和允许的工具。",
-        "把复杂系统封装成 Codex 可理解和调用的工具集合。"
-      ],
-      "not": [
-        "不是 MCP 概念本身，而是一个具体服务。",
-        "不是所有插件都必须包含的东西。",
-        "不是装上就自动可信。",
-        "不是取代 API，而是可能包装 API。"
-      ],
-      "mistakes": [
-        "以为配置了 MCP server，Codex 就一定能用所有工具。",
-        "忽略 OAuth、Bearer token、环境变量和工具允许列表。",
-        "不看服务器 instructions，导致误用工具。",
-        "不限制工具范围，让 Codex 面对太多不必要能力。"
-      ],
-      "product": [
-        {
-          "label": "输入",
-          "value": "服务器地址或启动命令、认证信息、工具清单、权限策略。"
-        },
-        {
-          "label": "处理",
-          "value": "Codex 启动或连接 MCP server，并把工具暴露给模型。"
-        },
-        {
-          "label": "输出",
-          "value": "可调用的外部工具、资源或上下文。"
-        },
-        {
-          "label": "风险",
-          "value": "认证失败、工具过宽、超时、返回内容不可信。"
-        }
-      ],
-      "reviewQuestion": "",
-      "related": [
-        "mcp",
-        "工具调用-tool-use",
-        "插件-plugin",
-        "权限-permissions"
-      ]
-    },
-    {
       "id": "mcp",
       "title": "模型上下文协议（MCP）",
       "chinese": "模型上下文协议",
       "english": "Model Context Protocol",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [
+        "MCP Server",
+        "MCP服务器",
+        "MCP服务",
+        "Model Context Protocol Server"
+      ],
       "sourceLevel": "官方已核",
       "path": "40_行动层/MCP.md",
       "audio": "audio/mcp.m4a",
-      "oneLine": "MCP 可以理解为一种把外部工具、数据和上下文接给 AI 助手的标准化连接方式。",
+      "visualType": "mcp",
+      "visual": "像通用插座和插头标准，让外部工具接进 AI 助手。",
+      "oneLine": "MCP 可以理解为一种把外部工具、数据和上下文接给 AI 助手的标准化连接方式；MCP Server 是按这套协议把具体工具暴露出来的服务。",
       "solves": [
         "让不同工具用相对统一的方式暴露给模型。",
         "降低每个 AI 应用单独适配工具的成本。",
-        "让 Agent 更容易访问文件、数据库、浏览器、业务系统等能力。"
+        "让 Agent 更容易访问文件、数据库、浏览器、业务系统等能力。",
+        "区分“协议标准”和“具体连接服务”，避免把 MCP Server 当成另一套概念。"
       ],
       "not": [
         "不是模型。",
@@ -1811,7 +1848,7 @@ window.AI_DICT_DATA = {
         },
         {
           "label": "处理",
-          "value": "把外部能力暴露给 AI 客户端。"
+          "value": "MCP Server 按协议把外部能力暴露给 AI 客户端。"
         },
         {
           "label": "输出",
@@ -1837,9 +1874,12 @@ window.AI_DICT_DATA = {
       "english": "Multi-Agent",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "40_行动层/多Agent Multi-Agent.md",
       "audio": "audio/多agent-multi-agent.m4a",
+      "visualType": "multi",
+      "visual": "像一个小队分工合作，主代理负责收束结果。",
       "oneLine": "多 Agent 是多个有分工的 Agent 围绕同一目标协作。",
       "solves": [
         "把复杂任务拆给不同能力或视角。",
@@ -1889,9 +1929,12 @@ window.AI_DICT_DATA = {
       "english": "Plan",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "40_行动层/计划 Plan.md",
       "audio": "audio/计划-plan.m4a",
+      "visualType": "plan",
+      "visual": "像行动前画路线图，先拆步骤、风险和检查点。",
       "oneLine": "计划是 Agent 在行动前对任务路径、步骤和风险的拆解。",
       "solves": [
         "避免模型直接跳到答案。",
@@ -1940,9 +1983,15 @@ window.AI_DICT_DATA = {
       "english": "Plugin",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [
+        "Codex Plugin",
+        "Plugins"
+      ],
       "sourceLevel": "官方已核",
       "path": "40_行动层/插件 Plugin.md",
       "audio": "audio/插件-plugin.m4a",
+      "visualType": "package",
+      "visual": "像能力套装，把技能、连接器和 MCP 服务打包安装。",
       "oneLine": "Plugin 是 Codex 的可安装能力包，可以把 skills、应用连接、MCP 服务器和相关配置打包成可分发的工作流。",
       "solves": [
         "把一个或多个可复用能力打包给别人安装。",
@@ -1984,7 +2033,7 @@ window.AI_DICT_DATA = {
       "related": [
         "技能-skills",
         "应用连接-app-connector",
-        "mcp服务器-mcp-server",
+        "mcp",
         "权限-permissions"
       ]
     },
@@ -1995,9 +2044,12 @@ window.AI_DICT_DATA = {
       "english": "Reflection",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "40_行动层/反思 Reflection.md",
       "audio": "audio/反思-reflection.m4a",
+      "visualType": "reflection",
+      "visual": "像做完后回看镜子，判断哪里要修正或重试。",
       "oneLine": "反思是让 Agent 回看当前结果，判断是否需要修正、重试或换路径。",
       "solves": [
         "发现明显错误和遗漏。",
@@ -2047,9 +2099,16 @@ window.AI_DICT_DATA = {
       "english": "Subagent",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [
+        "Subagents",
+        "Parallel Agents",
+        "子智能体"
+      ],
       "sourceLevel": "官方已核",
       "path": "40_行动层/子代理 Subagent.md",
       "audio": "audio/子代理-subagent.m4a",
+      "visualType": "subagent",
+      "visual": "像临时叫来的专门同事，分头查一块再把结果交回主线程。",
       "oneLine": "Subagent 是 Codex 为某个子任务临时启动的专门代理，用来并行探索、测试、审查或总结，然后把结果汇总给主线程。",
       "solves": [
         "把大型任务拆成可以并行处理的部分。",
@@ -2101,9 +2160,12 @@ window.AI_DICT_DATA = {
       "english": "Tool Use",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [],
       "sourceLevel": "官方已核",
       "path": "40_行动层/工具调用 Tool Use.md",
       "audio": "audio/工具调用-tool-use.m4a",
+      "visualType": "tool",
+      "visual": "像给 AI 配上工具箱，让它查、算、写、浏览和执行。",
       "oneLine": "工具调用是让 AI 使用外部工具完成查询、计算、写入、浏览、执行等动作。",
       "solves": [
         "让模型接触实时信息和真实系统。",
@@ -2153,9 +2215,12 @@ window.AI_DICT_DATA = {
       "english": "Workflow",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "40_行动层/工作流 Workflow.md",
       "audio": "audio/工作流-workflow.m4a",
+      "visualType": "workflow",
+      "visual": "像一条标准流水线，把一类任务拆成固定步骤。",
       "oneLine": "工作流是一组固定步骤，用来稳定完成某类任务。",
       "solves": [
         "把重复任务标准化。",
@@ -2205,9 +2270,16 @@ window.AI_DICT_DATA = {
       "english": "Worktree",
       "layer": "action",
       "layerName": "行动层",
+      "aliases": [
+        "Git Worktree",
+        "Codex Worktree",
+        "Codex-managed Worktree"
+      ],
       "sourceLevel": "官方已核",
       "path": "40_行动层/工作树 Worktree.md",
       "audio": "audio/工作树-worktree.m4a",
+      "visualType": "workspace",
+      "visual": "像同一个项目旁边开出的独立工作间，互不打扰并行修改。",
       "oneLine": "工作树是同一个 Git 仓库的另一份可工作的文件现场，让 Codex 可以在后台并行做任务，而不打扰你当前本地目录。",
       "solves": [
         "让多个任务能在同一个项目中并行推进。",
@@ -2260,9 +2332,16 @@ window.AI_DICT_DATA = {
       "english": "Approval",
       "layer": "evaluation",
       "layerName": "评估层",
+      "aliases": [
+        "Approval Policy",
+        "Ask for Approval",
+        "人工审批"
+      ],
       "sourceLevel": "官方已核",
       "path": "50_评估层/审批 Approval.md",
       "audio": "audio/审批-approval.m4a",
+      "visualType": "approval",
+      "visual": "像高风险按钮前的确认锁，按下前先问人。",
       "oneLine": "审批是 Codex 在执行某些敏感动作前停下来请求用户确认的机制。",
       "solves": [
         "让越界文件修改、联网、安装依赖、危险命令等动作有人工确认。",
@@ -2315,9 +2394,12 @@ window.AI_DICT_DATA = {
       "english": "Cost",
       "layer": "evaluation",
       "layerName": "评估层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "50_评估层/成本 Cost.md",
       "audio": "audio/成本-cost.m4a",
+      "visualType": "cost",
+      "visual": "像仪表盘上的消耗表，记录模型、工具、存储和人工成本。",
       "oneLine": "成本是 AI 应用运行时消耗的模型、工具、存储、计算和人工资源。",
       "solves": [
         "它帮助判断一个 AI 应用能不能持续使用和规模化。"
@@ -2365,9 +2447,12 @@ window.AI_DICT_DATA = {
       "english": "Evaluation / Evals",
       "layer": "evaluation",
       "layerName": "评估层",
+      "aliases": [],
       "sourceLevel": "官方已核",
       "path": "50_评估层/评估 Eval.md",
       "audio": "audio/评估-eval.m4a",
+      "visualType": "eval",
+      "visual": "像固定考卷，反复测同一批题来判断系统是否稳定。",
       "oneLine": "评估是用固定样本、标准和记录来判断 AI 系统表现是否稳定。",
       "solves": [
         "判断 prompt、模型、RAG、工具或 Agent 改动是否变好。",
@@ -2417,9 +2502,12 @@ window.AI_DICT_DATA = {
       "english": "Failure Mode",
       "layer": "evaluation",
       "layerName": "评估层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "50_评估层/失败模式 Failure Mode.md",
       "audio": "audio/失败模式-failure-mode.m4a",
+      "visualType": "failure",
+      "visual": "像故障标本册，把反复出现的问题归成几类。",
       "oneLine": "失败模式是 AI 系统反复出现的典型失败类型。",
       "solves": [
         "让问题从“这次又错了”变成可分类、可改进。",
@@ -2469,9 +2557,12 @@ window.AI_DICT_DATA = {
       "english": "Fallback",
       "layer": "evaluation",
       "layerName": "评估层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "50_评估层/兜底 Fallback.md",
       "audio": "audio/兜底-fallback.m4a",
+      "visualType": "fallback",
+      "visual": "像主路封闭时的备用路线，让任务失败后还能收束。",
       "oneLine": "兜底是主路径失败时的备用处理方案。",
       "solves": [
         "避免系统失败后直接崩掉或胡编。",
@@ -2521,9 +2612,12 @@ window.AI_DICT_DATA = {
       "english": "Guardrails",
       "layer": "evaluation",
       "layerName": "评估层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "50_评估层/护栏 Guardrails.md",
       "audio": "audio/护栏-guardrails.m4a",
+      "visualType": "guardrails",
+      "visual": "像道路护栏和检查站，防止 AI 越界或误操作。",
       "oneLine": "护栏是限制 AI 行为边界、降低错误和风险的规则、检查和权限设计。",
       "solves": [
         "防止越权、误操作、违规输出。",
@@ -2573,9 +2667,16 @@ window.AI_DICT_DATA = {
       "english": "Hooks",
       "layer": "evaluation",
       "layerName": "评估层",
+      "aliases": [
+        "Codex Hooks",
+        "Lifecycle Hooks",
+        "生命周期钩子"
+      ],
       "sourceLevel": "官方已核",
       "path": "50_评估层/钩子 Hooks.md",
       "audio": "audio/钩子-hooks.m4a",
+      "visualType": "hooks",
+      "visual": "像流水线上的自动检查点，在关键节点触发脚本。",
       "oneLine": "Hooks 是 Codex 的生命周期扩展点，可以在工具调用前后、用户提交、压缩、停止等节点运行脚本或检查。",
       "solves": [
         "在关键动作前后插入团队自定义检查。",
@@ -2628,9 +2729,12 @@ window.AI_DICT_DATA = {
       "english": "Human-in-the-loop",
       "layer": "evaluation",
       "layerName": "评估层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "50_评估层/人在回路 Human-in-the-loop.md",
       "audio": "audio/人在回路-human-in-the-loop.m4a",
+      "visualType": "human",
+      "visual": "像关键路口的人工闸门，重要决定交给人确认。",
       "oneLine": "人在回路是让人在关键节点参与判断、确认或接管。",
       "solves": [
         "控制高风险动作。",
@@ -2680,9 +2784,12 @@ window.AI_DICT_DATA = {
       "english": "Latency",
       "layer": "evaluation",
       "layerName": "评估层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "50_评估层/延迟 Latency.md",
       "audio": "audio/延迟-latency.m4a",
+      "visualType": "latency",
+      "visual": "像沙漏，从用户发出请求到系统返回结果的等待时间。",
       "oneLine": "延迟是用户发起请求到系统返回结果之间的时间。",
       "solves": [
         "它不是能力，而是衡量产品体验和可用性的关键指标。"
@@ -2730,9 +2837,12 @@ window.AI_DICT_DATA = {
       "english": "Log",
       "layer": "evaluation",
       "layerName": "评估层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "50_评估层/日志 Log.md",
       "audio": "audio/日志-log.m4a",
+      "visualType": "log",
+      "visual": "像按时间盖章的流水账，记录系统发生过什么。",
       "oneLine": "日志是系统运行过程中留下的事件记录。",
       "solves": [
         "还原系统发生了什么。",
@@ -2782,9 +2892,17 @@ window.AI_DICT_DATA = {
       "english": "Permissions",
       "layer": "evaluation",
       "layerName": "评估层",
+      "aliases": [
+        "Permission Profiles",
+        "权限配置",
+        "文件系统权限",
+        "网络权限"
+      ],
       "sourceLevel": "官方已核",
       "path": "50_评估层/权限 Permissions.md",
       "audio": "audio/权限-permissions.m4a",
+      "visualType": "permissions",
+      "visual": "像门禁卡，规定 Codex 能进哪些房间、碰哪些文件。",
       "oneLine": "权限是 Codex 能读写哪些文件、能不能访问网络、哪些命令需要限制的边界配置。",
       "solves": [
         "控制 Codex 对本机文件系统和网络的访问范围。",
@@ -2837,9 +2955,12 @@ window.AI_DICT_DATA = {
       "english": "Prompt Injection",
       "layer": "evaluation",
       "layerName": "评估层",
+      "aliases": [],
       "sourceLevel": "官方已核",
       "path": "50_评估层/Prompt Injection.md",
       "audio": "audio/prompt-injection.m4a",
+      "visualType": "injection",
+      "visual": "像藏在资料里的假指令，试图让助手偏离原规则。",
       "oneLine": "Prompt Injection 是恶意或不可信输入诱导模型忽略规则、泄露信息或执行错误动作。",
       "solves": [
         "它不是能力，而是 AI 应用必须防范的安全风险。"
@@ -2887,9 +3008,16 @@ window.AI_DICT_DATA = {
       "english": "Rules",
       "layer": "evaluation",
       "layerName": "评估层",
+      "aliases": [
+        "Codex Rules",
+        "Command Rules",
+        "命令规则"
+      ],
       "sourceLevel": "官方已核",
       "path": "50_评估层/规则 Rules.md",
       "audio": "audio/规则-rules.m4a",
+      "visualType": "rules",
+      "visual": "像命令红绿灯，决定某类命令放行、询问或禁止。",
       "oneLine": "Rules 是 Codex 用来允许、询问或禁止某类命令的规则系统，帮助控制工具调用边界。",
       "solves": [
         "把常见命令的处理方式从临时判断变成稳定规则。",
@@ -2942,9 +3070,16 @@ window.AI_DICT_DATA = {
       "english": "Sandbox",
       "layer": "evaluation",
       "layerName": "评估层",
+      "aliases": [
+        "Sandboxing",
+        "Sandbox Mode",
+        "沙盒模式"
+      ],
       "sourceLevel": "官方已核",
       "path": "50_评估层/沙盒 Sandbox.md",
       "audio": "audio/沙盒-sandbox.m4a",
+      "visualType": "sandbox",
+      "visual": "像透明实验箱，把操作限制在安全范围内。",
       "oneLine": "沙盒是 Codex 运行命令和访问文件时的隔离边界，用来限制它能触碰的范围。",
       "solves": [
         "防止命令随意影响整个电脑。",
@@ -2997,9 +3132,12 @@ window.AI_DICT_DATA = {
       "english": "Trace",
       "layer": "evaluation",
       "layerName": "评估层",
+      "aliases": [],
       "sourceLevel": "待补",
       "path": "50_评估层/Trace.md",
       "audio": "audio/trace.m4a",
+      "visualType": "trace",
+      "visual": "像一条带脚印的路线图，串起一次任务的每一步。",
       "oneLine": "Trace 是一次 AI 任务从输入到输出的完整路径记录。",
       "solves": [
         "看清模型做了哪些判断、调用了哪些工具、每步结果如何。",

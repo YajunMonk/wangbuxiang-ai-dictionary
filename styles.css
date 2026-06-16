@@ -60,6 +60,13 @@
   --active-bg:
     linear-gradient(145deg, color-mix(in srgb, var(--layer-color), transparent 80%), transparent),
     rgba(18, 22, 30, 0.96);
+  --illustration-bg:
+    linear-gradient(135deg, color-mix(in srgb, var(--layer-color), transparent 88%), transparent 62%),
+    rgba(5, 8, 13, 0.8);
+  --illustration-grid: rgba(255, 255, 255, 0.06);
+  --illustration-line: color-mix(in srgb, var(--layer-color), #f5f0e8 22%);
+  --illustration-soft: color-mix(in srgb, var(--layer-color), transparent 82%);
+  --illustration-strong: color-mix(in srgb, var(--layer-color), transparent 54%);
   --card-bg:
     linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 34%),
     rgba(9, 13, 20, 0.86);
@@ -146,6 +153,13 @@
   --active-bg:
     linear-gradient(145deg, color-mix(in srgb, var(--layer-color), transparent 86%), transparent),
     rgba(255, 255, 255, 0.94);
+  --illustration-bg:
+    linear-gradient(135deg, color-mix(in srgb, var(--layer-color), transparent 88%), transparent 62%),
+    rgba(255, 255, 255, 0.78);
+  --illustration-grid: rgba(22, 42, 58, 0.08);
+  --illustration-line: color-mix(in srgb, var(--layer-color), #16202a 32%);
+  --illustration-soft: color-mix(in srgb, var(--layer-color), transparent 86%);
+  --illustration-strong: color-mix(in srgb, var(--layer-color), transparent 66%);
   --card-bg:
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.72) 34%),
     rgba(255, 255, 255, 0.82);
@@ -722,6 +736,120 @@ h3 {
 .concept-card p {
   margin: 0;
   color: var(--soft);
+  font-size: 13px;
+}
+
+.concept-illustration {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--layer-color), transparent 66%);
+  border-radius: var(--radius);
+  background: var(--illustration-bg);
+}
+
+.concept-illustration.is-card {
+  min-height: 104px;
+}
+
+.concept-illustration.is-detail {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--layer-color), transparent 84%);
+}
+
+.concept-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 8 / 5;
+}
+
+.concept-illustration.is-card .concept-svg {
+  max-height: 114px;
+}
+
+.visual-canvas {
+  fill: color-mix(in srgb, var(--panel), transparent 16%);
+  stroke: color-mix(in srgb, var(--layer-color), transparent 72%);
+  stroke-width: 1;
+}
+
+.visual-grid {
+  fill: none;
+  stroke: var(--illustration-grid);
+  stroke-width: 1;
+}
+
+.visual-line {
+  fill: none;
+  stroke: var(--illustration-line);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3;
+}
+
+.visual-line.dashed {
+  stroke-dasharray: 6 7;
+}
+
+.visual-loop {
+  stroke-dasharray: 72 13;
+}
+
+.visual-fill {
+  fill: var(--illustration-soft);
+  stroke: color-mix(in srgb, var(--layer-color), transparent 58%);
+  stroke-width: 2;
+}
+
+.visual-fill.muted {
+  opacity: 0.66;
+}
+
+.visual-fill.accent {
+  fill: color-mix(in srgb, var(--amber), transparent 72%);
+}
+
+.visual-core {
+  fill: var(--illustration-strong);
+  stroke: color-mix(in srgb, var(--layer-color), white 10%);
+  stroke-width: 2.5;
+}
+
+.visual-core.ok {
+  fill: color-mix(in srgb, var(--green), transparent 50%);
+}
+
+.visual-core.ask {
+  fill: color-mix(in srgb, var(--amber), transparent 50%);
+}
+
+.visual-core.stop {
+  fill: color-mix(in srgb, var(--coral), transparent 46%);
+}
+
+.visual-text {
+  fill: var(--text);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: color-mix(in srgb, var(--bg), transparent 26%);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+.visual-badge {
+  font-size: 10px;
+  font-weight: 900;
+  fill: var(--text);
+}
+
+.concept-illustration figcaption {
+  border-top: 1px solid color-mix(in srgb, var(--layer-color), transparent 74%);
+  color: var(--soft);
+  padding: 10px 12px 11px;
   font-size: 13px;
 }
 

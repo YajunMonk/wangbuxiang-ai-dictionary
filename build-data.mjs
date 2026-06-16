@@ -77,6 +77,32 @@ function parseFrontmatter(raw) {
   );
 }
 
+function frontmatterAliases(raw) {
+  const match = raw.match(/^---\n([\s\S]*?)\n---/);
+  if (!match) return [];
+  const block = match[1];
+  const aliases = [];
+  const inline = block.match(/^aliases:\s*\[([^\]]+)\]\s*$/m);
+  if (inline) {
+    aliases.push(
+      ...inline[1]
+        .split(",")
+        .map((item) => item.replace(/^["']|["']$/g, "").trim())
+        .filter(Boolean),
+    );
+  }
+  const multiline = block.match(/^aliases:\s*\n((?:\s+-\s+.+\n?)+)/m);
+  if (multiline) {
+    aliases.push(
+      ...multiline[1]
+        .split("\n")
+        .map((line) => line.replace(/^\s*-\s+/, "").trim())
+        .filter(Boolean),
+    );
+  }
+  return [...new Set(aliases)];
+}
+
 function stripFrontmatter(raw) {
   return raw.replace(/^---\n[\s\S]*?\n---\n?/, "");
 }
@@ -168,6 +194,7 @@ const concepts = walk(dictionaryRoot)
     const layerId = layerIdByName.get(layerName) || "other";
     const relativePath = path.relative(dictionaryRoot, filePath);
     const oneLine = section(markdown, "一句话");
+    const visual = section(markdown, "具象图解");
     const product = section(markdown, "放在产品里怎么看");
     const related = section(markdown, "相关概念");
 
@@ -178,9 +205,12 @@ const concepts = walk(dictionaryRoot)
       english,
       layer: layerId,
       layerName,
+      aliases: frontmatterAliases(raw),
       sourceLevel: frontmatter.source_level || "",
       path: relativePath,
       audio: `audio/${slugify(path.basename(filePath, ".md"))}.m4a`,
+      visualType: frontmatter.visual_type || layerId,
+      visual: paragraph(visual),
       oneLine: paragraph(oneLine),
       solves: lines(section(markdown, "它解决什么问题")).slice(0, 4),
       not: lines(section(markdown, "它不是什么")).slice(0, 4),
@@ -204,6 +234,9 @@ for (const concept of concepts) {
   idByRelatedName.set(concept.chinese, concept.id);
   idByRelatedName.set(concept.english, concept.id);
   idByRelatedName.set(path.basename(concept.path, ".md"), concept.id);
+  for (const alias of concept.aliases || []) {
+    idByRelatedName.set(alias, concept.id);
+  }
 }
 
 for (const concept of concepts) {
